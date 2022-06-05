@@ -396,6 +396,24 @@ function showSortedEmployees(list) {
 
 }
 
+<<<<<<< HEAD
+=======
+function clearTable() {
+    let table = document.getElementById("sorting").getElementsByClassName("employee-list")[0]
+    let rows = table.getElementsByTagName("tr")
+    const length = rows.length
+    
+    console.log(rows.length)
+
+    for (let i = 1; i < length; i++){
+        console.log(rows[1])
+        table.removeChild(rows[1])
+    }
+
+    console.log(rows.length)
+}
+
+>>>>>>> b0dc0aa (Renamed id)
 function sortedList() {
     let flag = false
 
