@@ -13,67 +13,67 @@
   <div class="header">
     <h1>Лаборатория «Колбочка»</h1>
   </div>
-  <div class="tabs">
-    <div id="staff" class="content">
-      <table class="employee-list">
-        <tr>
-          <th>ФИО</th>
-          <th>Дата рождения</th>
-          <th>Должность</th>
-        </tr>
-      </table>
-      Содержимое 1...
-    </div>
-    <div id="HR-department" class="content">
-      + Создание карточки нового сотрудника
-      <form>
-        <label for="name">ФИО:</label>
-        <input id="name" type="text" class= "input" required /><br />
-        <label for="gender">Пол:</label>
-        <input id="gender" list="man\woman" class= "input" required /><br />
-        <datalist id="man\woman">
-          <option value="Мужчина"></option>
-          <option value="Женщина"></option>
-        </datalist>
-        <label for="age">Возраст:</label>
-        <input id="age" type="number" step="1" min="1" max="100" class= "input" required /><br />
-        <label for="marital-status">Семейное положение:</label>
-        <input id="marital-status" list="status" class= "input" required /><br />
-        <datalist id="status">
-          <option value="В браке"></option>
-          <option value="Не в браке"></option>
-        </datalist>
-        <label for="kids">Дети:</label>
-        <input id="kids" type="number" step="1" min="0" max="30" class= "input" required /><br />
-        <label for="post">Должность:</label>
-        <input id="post" type="text" class= "input" required /><br />
-        <label for="scientific-degree">Научная степень:</label>
-        <input id="scientific-degree" type="text" class= "input" required /><br />
-        <input class="button" type="submit" >
-      </form>
-      Содержимое 2...
-    </div>
-    <!--Модальное окно-->
-    <div class="modal" id="modal">
-      <div class="modal_content">
+  <div class="container-login" style="background-image: url('./laboratory.jpg')">
+    <div class="tabs">
+      <div id="staff" class="content">
+        <table class="employee-list">
+          <tr>
+            <th >ФИО</th>
+            <th>Дата рождения</th>
+            <th>Должность</th>
+          </tr>
+        </table>
+        Содержимое 1...
+      </div>
+      <div id="HR-department" class="content">
+        + Создание карточки нового сотрудника
+        <form>
+          <label for="name">ФИО:</label>
+          <input id="name" type="text" class="input" required /><br />
+          <label for="gender">Пол:</label>
+          <input id="gender" list="man\woman" class="input" required /><br />
+          <datalist id="man\woman">
+            <option value="Мужчина"></option>
+            <option value="Женщина"></option>
+          </datalist>
+          <label for="age">Возраст:</label>
+          <input id="age" type="number" step="1" min="1" max="100" class="input" required /><br />
+          <label for="marital-status">Семейное положение:</label>
+          <input id="marital-status" list="status" class="input" required /><br />
+          <datalist id="status">
+            <option value="В браке"></option>
+            <option value="Не в браке"></option>
+          </datalist>
+          <label for="kids">Дети:</label>
+          <input id="kids" type="number" step="1" min="0" max="30" class="input" required /><br />
+          <label for="post">Должность:</label>
+          <input id="post" type="text" class="input" required /><br />
+          <label for="scientific-degree">Научная степень:</label>
+          <input id="scientific-degree" type="text" class="input" required /><br />
+          <input class="button" type="submit" />
+        </form>
+        Содержимое 2...
+      </div>
+      <!--Модальное окно-->
+      <div class="modal" id="modal">
+        <div class="modal_content">
           <span class="close_modal_window">×</span>
+        </div>
       </div>
-  </div>
-    <div id="trade-union" class="content">
-      <div id="sort_menu">
+      <div id="trade-union" class="content">
+        <div id="sort_menu"></div>
 
+        Сортировка:
+        <!-- Выпадающий список вариантов сортировки -->
+        Содержимое 3...
       </div>
-      
-      Сортировка:
-      <!-- Выпадающий список вариантов сортировки -->
-      Содержимое 3...
-    </div>
-    <div class="tabs__links">
-      <a href="#staff" class="left">Список всех сотрудников лаборатории</a>
-      <section>
-        <a href="#HR-department" class="right">Для сотрудника отдела кадров</a>
-        <a href="#trade-union" class="right" onclick="sortedList()">Для сотрудника профкома</a>
-      </section>
+      <div class="tabs__links">
+        <a href="#staff" class="left">Список всех сотрудников лаборатории</a>
+        <section>
+          <a href="#HR-department" class="right">Для сотрудника отдела кадров</a>
+          <a href="#trade-union" class="right" onclick="sortedList()">Для сотрудника профкома</a>
+        </section>
+      </div>
     </div>
   </div>
 </body>
