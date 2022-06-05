@@ -355,7 +355,7 @@ function sort(gender, kids, start_old, end_old) {
 }
 
 function showSortedEmployees(list) {
-    let table = document.getElementById("sorting").getElementsByClassName("employee-list")[0]
+    let table = document.getElementById("trade-union").getElementsByClassName("employee-list")[0]
 
     // Очистка таблицы от старых данных
     while (table.children.length != 1) {
