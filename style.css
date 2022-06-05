@@ -156,3 +156,8 @@ tr:hover {
 .modal button {
   margin-top: 20px;
 }
+
+#sort_menu {
+  border: 1px solid black;
+  padding: 5%;
+}
