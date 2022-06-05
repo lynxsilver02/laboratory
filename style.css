@@ -121,7 +121,7 @@ tr:hover {
 
 .container-login {
   width: 100%;  
-  min-height: 100vh;
+  min-height: 90vh;
   
   background-position: center;
   background-size: cover;
@@ -151,4 +151,8 @@ tr:hover {
 
 #old-table td {
   border: 0px;
+}
+
+.modal button {
+  margin-top: 20px;
 }
