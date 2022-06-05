@@ -85,7 +85,7 @@ th {
   background-color: #bbdefb;
 }
 
-tbody tr:hover {
+tr:hover {
   background-color: #e3f2fd7e;
 }
 
@@ -117,4 +117,16 @@ tbody tr:hover {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+}
+
+#old-table {
+  width: 10%;
+}
+
+#old-table input {
+  text-align: center;
+}
+
+#old-table td {
+  border: 0px;
 }

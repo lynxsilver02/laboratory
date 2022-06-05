@@ -1,3 +1,9 @@
+window.onload = function() {
+    let sorted_empl = sort(gender, kids, startYears, endYears)
+    showSortedEmployees(sorted_empl)
+}
+
+
 class Employee {
     constructor(
         name,
@@ -156,7 +162,7 @@ for (let i = 0; i < employees.length; i++ ){
     let birth = document.createElement("td")
     let position = document.createElement("td")
 
-    row.setAttribute("onclick", "showCardEmployee")
+    row.setAttribute("onclick", "showCardEmployee()")
 
     // Добавление в каждую ячейку данные
     name.textContent = employees[i].name
@@ -187,6 +193,21 @@ for (let i = 0; i < employees.length; i++ ){
 //     }
 // };
 
+
+
+// ============================================================
+//
+//              Здесь всё, что касается сортировки
+//
+// ============================================================
+
+
+let gender = "Мужчина"
+let kids   = "Нет"
+let startYears = "18"
+let endYears   = "30"
+
+
 // Функция возвращает возраст работника.
 // Стандартное определение возраста не работает, потому что минимально возможный год
 // в JS – 1980
@@ -209,14 +230,16 @@ function getOld(employee) {
     }
 }
 
-function sort(sex, children, old) {
+function sort(gender, kids, start_old, end_old) {
     let sorted_empl = []
 
     for (let i = 0; i < employees.length; i++ ){
-        let employee_old = getOld(employees[i].birthday)
+        let employee_old = getOld(employees[i])
         
-        if (employees[i].sex == sex && employees[i].children == children && employee_old == old) {
-            sorted_empl.push(employee_old[i])
+        if (employees[i].gender == gender && employee_old >= start_old && employee_old <= end_old) {
+            if ((kids == "Нет" && employees[i].kids == 0) || (kids == "Есть" && employees[i].kids > 0)) {
+                sorted_empl.push(employees[i])
+            }
         }
 
     }
@@ -224,6 +247,79 @@ function sort(sex, children, old) {
     return sorted_empl
 }
 
+function showSortedEmployees(list) {
+    let table = document.getElementById("trade-union").getElementsByClassName("employee-list")[0]
+
+    if (list.length > 0) {
+        for (let i = 0; i < list.length; i++ ){
+            let row  = document.createElement("tr")
+            let name = document.createElement("td")
+            let birth = document.createElement("td")
+            let position = document.createElement("td")
+            
+            row.setAttribute("onclick", "showCardEmployee()")
+
+            name.textContent = list[i].name
+            birth.textContent = list[i].birthday
+            position.textContent = list[i].position
+
+            row.appendChild(name)
+            row.appendChild(birth)
+            row.appendChild(position)
+
+            table.appendChild(row)
+        }
+    } else {
+        let row = document.createElement("tr")
+        let data = document.createElement("td")
+
+        data.setAttribute("colspan", "3")
+
+        data.textContent = "Подходящих работников нет"
+        row.appendChild(data)
+
+        table.appendChild(row)
+    }
+
+}
+
+function clearTable() {
+    let table = document.getElementById("trade-union").getElementsByClassName("employee-list")[0]
+    let rows = table.getElementsByTagName("tr")
+    const length = rows.length
+    
+    console.log(rows.length)
+
+    for (let i = 1; i < length; i++){
+        console.log(rows[1])
+        table.removeChild(rows[1])
+    }
+
+    console.log(rows.length)
+}
+
 function sortedList() {
-    console.log("click")
+    let flag = false
+
+    if (document.querySelector('input[name="gender"]:checked').value != gender) flag = true
+    if (document.querySelector('input[name="kids"]:checked').value != kids)     flag = true
+    if (document.querySelector('input[name="start-old"]').value != startYears)  flag = true
+    if (document.querySelector('input[name="end-old"]').value != endYears)      flag = true
+
+    if (flag) {
+        gender     = document.querySelector('input[name="gender"]:checked').value
+        kids       = document.querySelector('input[name="kids"]:checked').value
+        startYears = document.querySelector('input[name="start-old"]').value
+        endYears   = document.querySelector('input[name="end-old"]').value
+
+        if ( Number(startYears) > Number(endYears) || Number(startYears) < 18 ) {
+            alert("Некорректный возрастной диапазон")
+            return
+        }
+
+        clearTable()
+        let sorted_empl = sort(gender, kids, startYears, endYears)
+        showSortedEmployees(sorted_empl)
+    }
+
 }
