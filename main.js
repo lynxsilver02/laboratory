@@ -1,5 +1,6 @@
 window.onload = function() {
-    let sorted_empl = sort(gender, kids, startYears, endYears)
+    showAllEmployees()
+    sorted_empl = sort(gender, kids, startYears, endYears)
     showSortedEmployees(sorted_empl)
 }
 
@@ -153,6 +154,8 @@ let employees = [
     ),
 ];
 
+let sorted_empl = []
+
 function showAllEmployees() {
     let table = document.getElementsByClassName("employee-list")[0];
 
@@ -184,8 +187,8 @@ function showAllEmployees() {
     }
 }
 
-showAllEmployees()
 
+// Функция поиска работника в массиве работников
 function search(name) {
     let employee = null
 
@@ -206,18 +209,32 @@ function clearModal(div) {
 }
 
 function deleteEmployee(name) {
-
+    // Карточка удаляемого сотрудника
     let del_employee = search(name)
+    
     let new_array = []
 
+    // Обновление списка сотрудников
     for (let i = 0; i < employees.length; i++ ){
         if (employees[i] == del_employee) continue
         new_array.push(employees[i])
     }
 
     employees = new_array
+
+    let new_sorted_array = []
+
+    // Обновление отсортированного списка сотрудников
+    for (let i= 0; i < sorted_empl.length; i++ ){
+        if (sorted_empl[i] == del_employee) continue
+        new_sorted_array.push(sorted_empl[i])
+    }
+
+    sorted_empl = new_sorted_array
+
     alert("Карточка долбоёба удалена")
     showAllEmployees()
+    showSortedEmployees(sorted_empl)
 }
 
 function showCardEmployee(event) {
@@ -240,8 +257,10 @@ function showCardEmployee(event) {
     //Добавиление информации о сотруднике в модальное окно
     let div = document.getElementsByClassName("modal_content")[0];
 
+    // Очистка всех полей модального окна
     clearModal(div)
 
+    // Настройка всех полей и кнопки модального окна
     let pname = document.createElement("p");
     pname.textContent = 'ФИО: ' + employee.name;
     
@@ -270,6 +289,7 @@ function showCardEmployee(event) {
         modal.style.display = "none"
     }
 
+    // Добавление всех полей и кнопки в модальное окно 
     div.appendChild(pname);
     div.appendChild(pgender);
     div.appendChild(pbirthday);
@@ -317,6 +337,7 @@ function getOld(employee) {
     }
 }
 
+// Функция фильтрации работников по заданным параметрам
 function sort(gender, kids, start_old, end_old) {
     let sorted_empl = []
 
@@ -336,6 +357,12 @@ function sort(gender, kids, start_old, end_old) {
 function showSortedEmployees(list) {
     let table = document.getElementById("sorting").getElementsByClassName("employee-list")[0]
 
+    // Очистка таблицы от старых данных
+    while (table.children.length != 1) {
+        table.removeChild(table.lastChild)
+    }
+
+    // Заполнение таблины новыми данными
     if (list.length > 0) {
         for (let i = 0; i < list.length; i++ ){
             let row  = document.createElement("tr")
@@ -369,21 +396,6 @@ function showSortedEmployees(list) {
 
 }
 
-function clearTable() {
-    let table = document.getElementById("sorting").getElementsByClassName("employee-list")[0]
-    let rows = table.getElementsByTagName("tr")
-    const length = rows.length
-    
-    console.log(rows.length)
-
-    for (let i = 1; i < length; i++){
-        console.log(rows[1])
-        table.removeChild(rows[1])
-    }
-
-    console.log(rows.length)
-}
-
 function sortedList() {
     let flag = false
 
@@ -403,8 +415,7 @@ function sortedList() {
             return
         }
 
-        clearTable()
-        let sorted_empl = sort(gender, kids, startYears, endYears)
+        sorted_empl = sort(gender, kids, startYears, endYears)
         showSortedEmployees(sorted_empl)
     }
 
