@@ -22,3 +22,22 @@ let employees = [
     new Employee("Алексеева Анна Андеевна", "04.04.1986", "Научный сотрудник"),
     new Employee("Ященко Юрий Дмитриевич", "14.12.1990", "Научный сотрудник"),
 ];
+
+let table = document.getElementsByClassName("employee-list")[0]
+
+for (let i = 0; i < employees.length; i++ ){
+    let row = document.createElement("tr")
+    let name = document.createElement("td")
+    let birth = document.createElement("td")
+    let position = document.createElement("td")
+
+    name.textContent = employees[i].name
+    birth.textContent = employees[i].birthday
+    position.textContent = employees[i].position
+
+    row.appendChild(name)
+    row.appendChild(birth)
+    row.appendChild(position)
+
+    table.appendChild(row)
+}
