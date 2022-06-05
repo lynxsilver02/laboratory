@@ -239,17 +239,6 @@ function showCardEmployee(event) {
 
     //Добавиление информации о сотруднике в модальное окно
     let div = document.getElementsByClassName("modal_content")[0];
-<<<<<<< HEAD
-    let p = document.createElement("p");
-    p.textContent = "ФИО: " + event.getElementsByTagName("td")[0].textContent;
-    p.textContent += "Пол: " + event.getElementsByTagName("td")[1].textContent;
-    p.textContent += "День рождения: " + event.getElementsByTagName("td")[2].textContent;
-    // p.textContent += "Семейное положение: " + event.getElementsByTagName("td")[3].textContent + "\n";
-    // p.textContent += "Дети: " + event.getElementsByTagName("td")[4].textContent + "\n";
-    // p.textContent += "Должность: " + event.getElementsByTagName("td")[5].textContent + "\n";
-    // p.textContent += "Научная степень: " + event.getElementsByTagName("td")[6].textContent + "\n";
-    div.appendChild(p);
-=======
 
     clearModal(div)
 
@@ -289,7 +278,6 @@ function showCardEmployee(event) {
     div.appendChild(pposition);
     div.appendChild(pscientific_degree);
     div.appendChild(del_button)
->>>>>>> 30d39247aa617e93c63e2bd98c5f6030a9dfa567
 }
 
 
@@ -346,7 +334,7 @@ function sort(gender, kids, start_old, end_old) {
 }
 
 function showSortedEmployees(list) {
-    let table = document.getElementById("trade-union").getElementsByClassName("employee-list")[0]
+    let table = document.getElementById("sorting").getElementsByClassName("employee-list")[0]
 
     if (list.length > 0) {
         for (let i = 0; i < list.length; i++ ){
@@ -382,7 +370,7 @@ function showSortedEmployees(list) {
 }
 
 function clearTable() {
-    let table = document.getElementById("trade-union").getElementsByClassName("employee-list")[0]
+    let table = document.getElementById("sorting").getElementsByClassName("employee-list")[0]
     let rows = table.getElementsByTagName("tr")
     const length = rows.length
     

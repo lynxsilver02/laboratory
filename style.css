@@ -68,8 +68,8 @@
 }
 
 .tabs > #staff:target ~ .tabs__links > a[href="#staff"],
-.tabs > #HR-department:target ~ .tabs__links > section > a[href="#HR-department"],
-.tabs > #trade-union:target ~ .tabs__links > section > a[href="#trade-union"] {
+.tabs > #new-card:target ~ .tabs__links > section > a[href="#new-card"],
+.tabs > #sorting:target ~ .tabs__links > section > a[href="#sorting"] {
   background-color: #bbdefb;
   cursor: default;
 }
@@ -141,31 +141,6 @@ tr:hover {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
-.container-login {
-  width: 100%;  
-  min-height: 90vh;
-  
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  z-index: 1;  
-}
-
-.container-login::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(255,255,255,0.8); 
-}
-
->>>>>>> 30d39247aa617e93c63e2bd98c5f6030a9dfa567
 #old-table {
   width: 10%;
 }
