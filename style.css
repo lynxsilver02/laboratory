@@ -140,3 +140,15 @@ tr:hover {
   left: 0;
   background-color: rgba(255,255,255,0.8); 
 }
+
+#old-table {
+  width: 10%;
+}
+
+#old-table input {
+  text-align: center;
+}
+
+#old-table td {
+  border: 0px;
+}
