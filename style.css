@@ -158,6 +158,18 @@ tr:hover {
 }
 
 #sort_menu {
-  border: 1px solid black;
-  padding: 5%;
+  width: 100%;
+}
+
+#sort_menu > div {
+  float: left;
+  width: 29%;
+  padding: 2%;
+}
+
+#sort_menu > button {
+  float: right;
+  padding: 2%;
+  margin: 2%;
+  border-radius: 15%;
 }
