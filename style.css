@@ -68,8 +68,8 @@
 }
 
 .tabs > #staff:target ~ .tabs__links > a[href="#staff"],
-.tabs > #HR-department:target ~ .tabs__links > section > a[href="#HR-department"],
-.tabs > #trade-union:target ~ .tabs__links > section > a[href="#trade-union"] {
+.tabs > #new-card:target ~ .tabs__links > section > a[href="#new-card"],
+.tabs > #sorting:target ~ .tabs__links > section > a[href="#sorting"] {
   background-color: #bbdefb;
   cursor: default;
 }
