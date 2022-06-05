@@ -153,49 +153,93 @@ let employees = [
     ),
 ];
 
-let table = document.getElementsByClassName("employee-list")[0];
+function showAllEmployees() {
+    let table = document.getElementsByClassName("employee-list")[0];
 
-for (let i = 0; i < employees.length; i++) {
-    // Создание пустой строки и 3-х ячеек
-    let row = document.createElement("tr");
-    let name = document.createElement("td");
-    let birth = document.createElement("td");
-    let position = document.createElement("td");
+    while (table.children.length != 1) {
+        table.removeChild(table.lastChild)
+    }
 
-    row.setAttribute("onclick", "showCardEmployee(this)");
+    for (let i = 0; i < employees.length; i++) {
+        // Создание пустой строки и 3-х ячеек
+        let row = document.createElement("tr");
+        let name = document.createElement("td");
+        let birth = document.createElement("td");
+        let position = document.createElement("td");
 
-    // Добавление в каждую ячейку данные
-    name.textContent = employees[i].name;
-    birth.textContent = employees[i].birthday;
-    position.textContent = employees[i].position;
+        row.setAttribute("onclick", "showCardEmployee(this)");
 
-    // Добавление ячеек в строку
-    row.appendChild(name);
-    row.appendChild(birth);
-    row.appendChild(position);
+        // Добавление в каждую ячейку данные
+        name.textContent = employees[i].name;
+        birth.textContent = employees[i].birthday;
+        position.textContent = employees[i].position;
 
-    // Добавление строки в таблицу
-    table.appendChild(row);
+        // Добавление ячеек в строку
+        row.appendChild(name);
+        row.appendChild(birth);
+        row.appendChild(position);
+
+        // Добавление строки в таблицу
+        table.appendChild(row);
+    }
+}
+
+showAllEmployees()
+
+function search(name) {
+    let employee = null
+
+    for (let i = 0; i < employees.length; i++) {
+        if (employees[i].name == name) {
+            employee = employees[i]
+            break
+        }
+    }
+
+    return employee
+}
+
+function clearModal(div) {
+    while (div.children.length != 1) {
+        div.removeChild(div.lastChild)
+    }
+}
+
+function deleteEmployee(name) {
+
+    let del_employee = search(name)
+    let new_array = []
+
+    for (let i = 0; i < employees.length; i++ ){
+        if (employees[i] == del_employee) continue
+        new_array.push(employees[i])
+    }
+
+    employees = new_array
+    alert("Карточка долбоёба удалена")
+    showAllEmployees()
 }
 
 function showCardEmployee(event) {
     let modal = document.getElementById("modal");
     let span = document.getElementsByClassName("close_modal_window")[0];
-
-    console.log(event.getElementsByTagName("td")[0].textContent)
     
     modal.style.display = "block";
     span.onclick = function () {
         modal.style.display = "none";
     };
+
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     };
 
+    let employee = search(event.getElementsByTagName("td")[0].textContent)
+
     //Добавиление информации о сотруднике в модальное окно
     let div = document.getElementsByClassName("modal_content")[0];
+<<<<<<< HEAD
     let p = document.createElement("p");
     p.textContent = "ФИО: " + event.getElementsByTagName("td")[0].textContent;
     p.textContent += "Пол: " + event.getElementsByTagName("td")[1].textContent;
@@ -205,6 +249,47 @@ function showCardEmployee(event) {
     // p.textContent += "Должность: " + event.getElementsByTagName("td")[5].textContent + "\n";
     // p.textContent += "Научная степень: " + event.getElementsByTagName("td")[6].textContent + "\n";
     div.appendChild(p);
+=======
+
+    clearModal(div)
+
+    let pname = document.createElement("p");
+    pname.textContent = 'ФИО: ' + employee.name;
+    
+    let pgender = document.createElement("p")
+    pgender.textContent = "Пол: " + employee.gender
+
+    let pbirthday = document.createElement("p")
+    pbirthday.textContent = "Дата рождения: " + employee.birthday
+
+    let pmaterial_status = document.createElement("p")
+    pmaterial_status.textContent = "Семейное положение: " + employee.marital_status
+
+    let pkids = document.createElement("p")
+    pkids.textContent = "Дети: " + employee.kids
+
+    let pposition = document.createElement("p")
+    pposition.textContent = "Должность: " + employee.position
+
+    let pscientific_degree = document.createElement("p")
+    pscientific_degree.textContent = "Учёная степень: " + employee.scientific_degree
+
+    let del_button = document.createElement("button")
+    del_button.textContent = "Удалить карточку работника"
+    del_button.onclick = function() {
+        deleteEmployee(employee.name)
+        modal.style.display = "none"
+    }
+
+    div.appendChild(pname);
+    div.appendChild(pgender);
+    div.appendChild(pbirthday);
+    div.appendChild(pmaterial_status);
+    div.appendChild(pkids);
+    div.appendChild(pposition);
+    div.appendChild(pscientific_degree);
+    div.appendChild(del_button)
+>>>>>>> 30d39247aa617e93c63e2bd98c5f6030a9dfa567
 }
 
 
@@ -270,7 +355,7 @@ function showSortedEmployees(list) {
             let birth = document.createElement("td")
             let position = document.createElement("td")
             
-            row.setAttribute("onclick", "showCardEmployee()")
+            row.setAttribute("onclick", "showCardEmployee(this)")
 
             name.textContent = list[i].name
             birth.textContent = list[i].birthday
