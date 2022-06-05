@@ -149,24 +149,28 @@ let employees = [
 
 let table = document.getElementsByClassName("employee-list")[0];
 
-for (let i = 0; i < employees.length; i++) {
-    let row = document.createElement("tr");
-    let name = document.createElement("td");
-    let birth = document.createElement("td");
-    let position = document.createElement("td");
+for (let i = 0; i < employees.length; i++ ){
+    // Создание пустой строки и 3-х ячеек
+    let row = document.createElement("tr")
+    let name = document.createElement("td")
+    let birth = document.createElement("td")
+    let position = document.createElement("td")
 
-    name.textContent = employees[i].name;
-    birth.textContent = employees[i].birthday;
-    position.textContent = employees[i].position;
+    row.setAttribute("onclick", "showCardEmployee")
 
-    row.appendChild(name);
-    row.appendChild(birth);
-    row.appendChild(position);
+    // Добавление в каждую ячейку данные
+    name.textContent = employees[i].name
+    birth.textContent = employees[i].birthday
+    position.textContent = employees[i].position
 
-    table.appendChild(row);
+    // Добавление ячеек в строку
+    row.appendChild(name)
+    row.appendChild(birth)
+    row.appendChild(position)
+
+    // Добавление строки в таблицу
+    table.appendChild(row)
 }
-
-
 
 // let modal = document.getElementById("modal");
 // let span = document.getElementsByClassName("close_modal_window")[0];
@@ -182,3 +186,44 @@ for (let i = 0; i < employees.length; i++) {
 //         modal.style.display = "none";
 //     }
 // };
+
+// Функция возвращает возраст работника.
+// Стандартное определение возраста не работает, потому что минимально возможный год
+// в JS – 1980
+function getOld(employee) {
+    let arr = employee.birthday.split(".")
+    let today = new Date()
+
+    let years = Number(today.getFullYear()) - Number(arr[2])
+
+    if (Number(arr[1]) > Number(today.getMonth()) + 1) {
+        return years - 1
+    } else if (Number(arr[1]) == Number(today.getMonth()) + 1) {
+        if (Number(arr[0]) > Number(today.getDay() + 1)) {
+            return years - 1
+        } else {
+            return years
+        }
+    } else {
+        return years
+    }
+}
+
+function sort(sex, children, old) {
+    let sorted_empl = []
+
+    for (let i = 0; i < employees.length; i++ ){
+        let employee_old = getOld(employees[i].birthday)
+        
+        if (employees[i].sex == sex && employees[i].children == children && employee_old == old) {
+            sorted_empl.push(employee_old[i])
+        }
+
+    }
+
+    return sorted_empl
+}
+
+function sortedList() {
+    console.log("click")
+}
