@@ -14,12 +14,11 @@
     <h1>Лаборатория «Колбочка»</h1>
   </div>
   <div class="container-login" style="background-image: url('./laboratory.jpg')">
-    
     <div class="tabs">
       <div id="staff" class="content">
         <table class="employee-list">
           <tr>
-            <th >ФИО</th>
+            <th>ФИО</th>
             <th>Дата рождения</th>
             <th>Должность</th>
           </tr>
@@ -61,61 +60,62 @@
           <span class="close_modal_window">×</span>
         </div>
       </div>
-    <div id="trade-union" class="content">
-      <div id="sort_menu">
-        <h3>Пол</h3>
-        <input type="radio" name="gender" value="Мужчина" checked>
-        <label for="gender">Муж.</label>
-        <input type="radio" name="gender" value="Женщина">
-        <label for="gender">Жен.</label>
+      <div id="trade-union" class="content">
+        <div id="sort_menu">
+          <h3>Пол</h3>
+          <input type="radio" name="gender" value="Мужчина" checked>
+          <label for="gender">Муж.</label>
+          <input type="radio" name="gender" value="Женщина">
+          <label for="gender">Жен.</label>
 
-        <br>
+          <br>
 
-        <h3>Дети</h3>
-        <input type="radio" name="kids" value="Нет" checked>
-        <label for="kids">Нет</label>
-        <input type="radio" name="kids" value="Есть">
-        <label for="kids">Есть</label>
+          <h3>Дети</h3>
+          <input type="radio" name="kids" value="Нет" checked>
+          <label for="kids">Нет</label>
+          <input type="radio" name="kids" value="Есть">
+          <label for="kids">Есть</label>
 
-        <br>
+          <br>
 
-        <h3>Возраст</h3>
-        <table id="old-table">
-          <tr>
-            <td>
-              <label for="old">От</label>
-            </td>
-            <td>
-              <label for="old">До</label>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input type="number" name="start-old" value="18" min="18">
-            </td>
-            <td>
-              <input type="number" name="end-old" value="30" max="200">
-            </td>
-          </tr>
+          <h3>Возраст</h3>
+          <table id="old-table">
+            <tr>
+              <td>
+                <label for="old">От</label>
+              </td>
+              <td>
+                <label for="old">До</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="number" name="start-old" value="18" min="18">
+              </td>
+              <td>
+                <input type="number" name="end-old" value="30" max="200">
+              </td>
+            </tr>
           </table>
-        </table>
+          </table>
 
-        <button onclick="sortedList()">Сортировать</button>
+          <button onclick="sortedList()">Сортировать</button>
+        </div>
+        <table class="employee-list">
+          <tr>
+            <th>ФИО</th>
+            <th>Дата рождения</th>
+            <th>Должность</th>
+          </tr>
+        </table>
       </div>
-      <table class="employee-list">
-        <tr>
-          <th >ФИО</th>
-          <th>Дата рождения</th>
-          <th>Должность</th>
-        </tr>
-      </table>
-    </div>
-    <div class="tabs__links">
-      <a href="#staff" class="left">Список всех сотрудников лаборатории</a>
-      <section>
-        <a href="#HR-department" class="right">Для сотрудника отдела кадров</a>
-        <a href="#trade-union" class="right" onclick="sortedList()">Для сотрудника профкома</a>
-      </section>
+      <div class="tabs__links">
+        <a href="#staff" class="left">Список всех сотрудников лаборатории</a>
+        <section>
+          <a href="#HR-department" class="right">Для сотрудника отдела кадров</a>
+          <a href="#trade-union" class="right" onclick="sortedList()">Для сотрудника профкома</a>
+        </section>
+      </div>
     </div>
   </div>
 </body>
