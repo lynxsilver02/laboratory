@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 100%;
+  min-height: 10vh;
+  background: linear-gradient(to top right, #3e7399, #bedbf7);
+}
+
+.header h1 {
+  text-align: center;
+  line-height: 10vh;
+  text-transform: uppercase;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs__links {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 10px auto;
+  background-color: white;
+  border: 1px solid #e3f2fd;
+  box-shadow: 0 2px 4px 0 #e3f2fd;
+} 
+
+.left,
+.right {
+  display: inline-block;
+  text-decoration: none;
+  padding: 6px 10px;
+  text-align: center;
+  color: #1976d2;
+  width: 10vw;
+}
+
+.left:hover,
+.right:hover {
+  background-color: rgba(227, 242, 253, 0.3);
+}
+
+.tabs > #staff:target ~ .tabs__links > a[href="#staff"],
+.tabs > #HR-department:target ~ .tabs__links > section > a[href="#HR-department"],
+.tabs > #trade-union:target ~ .tabs__links > section > a[href="#trade-union"] {
+  background-color: #bbdefb;
+  cursor: default;
+}
+
+.tabs > div:not(.tabs__links) {
+  display: none;
+  order: 1;
+}
+
+.tabs > div:target {
+  display: block;
+}
+
+.content {
+    width: 70%;
+    min-height: 75vh;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 2px 4px 0 #e3f2fd;
+  }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th,
+td {
+  border: 1px solid #e3f2fd;
+  padding: 5px;
+}
+th {
+  background-color: #bbdefb;
+}
+
+tbody tr:hover {
+  background-color: #e3f2fd7e;
+}
