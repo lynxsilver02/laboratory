@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Charis SIL', serif;
 }
 
 .container-login {
@@ -62,16 +63,12 @@
     width: 10vw;
 }
 
-section {
+.right_tabs {
     display: table;
 }
 
 .right {
     vertical-align: middle;
-}
-
-#new-card {
-    padding: auto;
 }
 
 .left:hover,
@@ -123,6 +120,14 @@ tr:hover {
     background-color: #e3f2fd7e;
 }
 
+#new-card {
+    padding: auto;
+}
+
+.create-card {
+    margin: 5vw 0;
+}
+
 .header-create-card {
     margin: 15px 0;
     text-align: center;
@@ -139,6 +144,12 @@ form > input {
 input[value="Добавить сотрудника"] {
     width: 10vw;
     margin: 15px 30vw;
+    background-color: #bbdefb;
+}
+
+input[value="Добавить сотрудника"]:hover {
+    background-color: #3e7399;
+    color: white;
 }
 
 /*Оформление модального окна*/
