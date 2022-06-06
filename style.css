@@ -124,8 +124,8 @@ tr:hover {
 }
 
 .header-create-card {
-  margin: 15px 0;
-  text-align: center;
+    margin: 15px 0;
+    text-align: center;
 }
 
 form > input {
@@ -137,11 +137,9 @@ form > input {
 }
 
 input[value="Добавить сотрудника"] {
-  width: 10vw;
-  margin: 15px 30vw;
+    width: 10vw;
+    margin: 15px 30vw;
 }
-
-
 
 /*Оформление модального окна*/
 .modal {
@@ -161,7 +159,7 @@ input[value="Добавить сотрудника"] {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 40%;
     z-index: 99999;
 }
 .modal .modal_content .close_modal_window {
@@ -186,4 +184,21 @@ input[value="Добавить сотрудника"] {
 
 .modal button {
     margin-top: 20px;
+}
+
+#sort_menu {
+    width: 100%;
+}
+
+#sort_menu > div {
+    float: left;
+    width: 29%;
+    padding: 2%;
+}
+
+#sort_menu > button {
+    float: right;
+    padding: 2%;
+    margin: 2%;
+    border-radius: 15%;
 }
