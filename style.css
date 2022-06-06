@@ -1,86 +1,98 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .container-login {
-  width: 100%;  
-  min-height: 90vh;
-  
-  background-position: center;
-  background-size: cover;
-  position: relative;
-  z-index: 1;  
+    width: 100%;
+    min-height: 90vh;
+
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
 }
 
 .container-login::before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(255,255,255,0.8); 
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .header {
-  width: 100%;
-  min-height: 10vh;
-  background: linear-gradient(to top right, #3e7399, #bedbf7);
+    width: 100%;
+    min-height: 10vh;
+    background: linear-gradient(to top right, #3e7399, #bedbf7);
 }
 
 .header h1 {
-  text-align: center;
-  line-height: 10vh;
-  text-transform: uppercase;
+    text-align: center;
+    line-height: 10vh;
+    text-transform: uppercase;
 }
 
 .tabs {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .tabs__links {
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-  margin: 10px auto;
-  background-color: white;
-  border: 1px solid #e3f2fd;
-  box-shadow: 0 2px 4px 0 #e3f2fd;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 10px auto;
+    background-color: white;
+    border: 1px solid #e3f2fd;
+    box-shadow: 0 2px 4px 0 #e3f2fd;
 }
 
 .left,
 .right {
-  display: inline-block;
-  text-decoration: none;
-  padding: 6px 10px;
-  text-align: center;
-  color: #1976d2;
-  width: 10vw;
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 10px;
+    text-align: center;
+    color: #1976d2;
+    width: 10vw;
+}
+
+section {
+    display: table;
+}
+
+.right {
+    vertical-align: middle;
+}
+
+#new-card {
+    padding: auto;
 }
 
 .left:hover,
 .right:hover {
-  background-color: rgba(227, 242, 253, 0.3);
+    background-color: rgba(227, 242, 253, 0.3);
 }
 
 .tabs > #staff:target ~ .tabs__links > a[href="#staff"],
 .tabs > #new-card:target ~ .tabs__links > section > a[href="#new-card"],
 .tabs > #sorting:target ~ .tabs__links > section > a[href="#sorting"] {
-  background-color: #bbdefb;
-  cursor: default;
+    background-color: #bbdefb;
+    cursor: default;
 }
 
 .tabs > div:not(.tabs__links) {
-  display: none;
-  order: 1;
+    display: none;
+    order: 1;
 }
 
 .tabs > div:target {
-  display: block;
+    display: block;
 }
 
 .content {
@@ -90,7 +102,7 @@
     background-color: #fff;
     border: 1px solid #e3f2fd;
     box-shadow: 0 2px 4px 0 #e3f2fd;
-  }
+}
 
 table {
     width: 100%;
@@ -100,59 +112,78 @@ table {
 
 th,
 td {
-  border: 1px solid #e3f2fd;
-  padding: 5px;
+    border: 1px solid #e3f2fd;
+    padding: 5px;
 }
 th {
-  background-color: #bbdefb;
+    background-color: #bbdefb;
 }
 
 tr:hover {
-  background-color: #e3f2fd7e;
+    background-color: #e3f2fd7e;
 }
+
+.header-create-card {
+  margin: 15px 0;
+  text-align: center;
+}
+
+form > input {
+    padding: 10px;
+    margin: 10px 25vw;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    width: 20vw;
+}
+
+input[value="Добавить сотрудника"] {
+  width: 10vw;
+  margin: 15px 30vw;
+}
+
 
 
 /*Оформление модального окна*/
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.6);
-  z-index: 1000;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
 }
 .modal .modal_content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  z-index: 99999;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    z-index: 99999;
 }
 .modal .modal_content .close_modal_window {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 #old-table {
-  width: 10%;
+    width: 10%;
 }
 
 #old-table input {
-  text-align: center;
+    text-align: center;
 }
 
 #old-table td {
-  border: 0px;
+    border: 0px;
 }
 
 .modal button {
-  margin-top: 20px;
+    margin-top: 20px;
 }

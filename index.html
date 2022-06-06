@@ -24,41 +24,33 @@
           </tr>
         </table>
         Содержимое 1...
+        <!--Модальное окно-->
+        <div class="modal" id="modal">
+          <div class="modal_content">
+            <span class="close_modal_window">×</span>
+          </div>
+        </div>
       </div>
       <div id="new-card" class="content">
-        + Создание карточки нового сотрудника
+        <h2 class="header-create-card">Создание карточки нового сотрудника</h2>
         <form>
-          <label for="name">ФИО:</label>
-          <input id="name" type="text" class="input" required /><br />
-          <label for="gender">Пол:</label>
-          <input id="gender" list="man\woman" class="input" required /><br />
+          <input type="text" class="input" placeholder="ФИО" required /><br />
+          <input list="man\woman" class="input" placeholder="Пол" required /><br />
           <datalist id="man\woman">
             <option value="Мужчина"></option>
             <option value="Женщина"></option>
           </datalist>
-          <label for="age">Возраст:</label>
-          <input id="age" type="number" step="1" min="1" max="100" class="input" required /><br />
-          <label for="marital-status">Семейное положение:</label>
-          <input id="marital-status" list="status" class="input" required /><br />
+          <input type="number" step="1" min="1" max="100" placeholder="Возраст" class="input" required /><br />
+          <input list="status" class="input" placeholder="Семейное положение" required /><br />
           <datalist id="status">
             <option value="В браке"></option>
             <option value="Не в браке"></option>
           </datalist>
-          <label for="kids">Дети:</label>
-          <input id="kids" type="number" step="1" min="0" max="30" class="input" required /><br />
-          <label for="post">Должность:</label>
-          <input id="post" type="text" class="input" required /><br />
-          <label for="scientific-degree">Научная степень:</label>
-          <input id="scientific-degree" type="text" class="input" required /><br />
-          <input class="button" type="submit" />
+          <input type="number" step="1" min="0" max="30" placeholder="Дети" class="input" required /><br />
+          <input type="text" class="input" placeholder="Должность" required /><br />
+          <input type="text" class="input" placeholder="Научная степень" required /><br />
+          <input class="button" type="submit" value="Добавить сотрудника"/>
         </form>
-        Содержимое 2...
-      </div>
-      <!--Модальное окно-->
-      <div class="modal" id="modal">
-        <div class="modal_content">
-          <span class="close_modal_window">×</span>
-        </div>
       </div>
       <div id="sorting" class="content">
         <div id="sort_menu">
