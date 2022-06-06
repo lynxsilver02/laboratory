@@ -232,7 +232,7 @@ function deleteEmployee(name) {
 
     sorted_empl = new_sorted_array
 
-    alert("Карточка долбоёба удалена")
+    alert("Карточка сотрудника удалена")
     showAllEmployees()
     showSortedEmployees(sorted_empl)
 }
@@ -255,16 +255,25 @@ function showCardEmployee(event) {
     let employee = search(event.getElementsByTagName("td")[0].textContent)
 
     //Добавиление информации о сотруднике в модальное окно
-    let div = document.getElementsByClassName("modal_content")[0];
+    let div = document.getElementsByClassName("employee_card")[0];
 
     // Очистка всех полей модального окна
     clearModal(div)
+
+    let img = document.createElement("img");
+    if (employee.gender == "Мужчина") {
+        img.setAttribute("src", "./man.jpg");
+        img.setAttribute("height", "200");
+    } else if (employee.gender == "Женщина") {
+        img.setAttribute("src", "./woman.jpg");
+        img.setAttribute("height", "200");
+    }
 
     // Настройка всех полей и кнопки модального окна
     let pname = document.createElement("p");
     pname.textContent = 'ФИО: ' + employee.name;
     
-    let pgender = document.createElement("p")
+    let pgender = document.createElement("p");
     pgender.textContent = "Пол: " + employee.gender
 
     let pbirthday = document.createElement("p")
@@ -283,13 +292,16 @@ function showCardEmployee(event) {
     pscientific_degree.textContent = "Учёная степень: " + employee.scientific_degree
 
     let del_button = document.createElement("button")
-    del_button.textContent = "Удалить карточку работника"
+    del_button.textContent = "Удалить карточку сотрудника"
     del_button.onclick = function() {
-        deleteEmployee(employee.name)
-        modal.style.display = "none"
+        if (confirm("Вы уверены, что хотите удалить карточку этого сотрудника?")){
+            deleteEmployee(employee.name)
+            modal.style.display = "none"
+        }
     }
 
     // Добавление всех полей и кнопки в модальное окно 
+    div.appendChild(img);
     div.appendChild(pname);
     div.appendChild(pgender);
     div.appendChild(pbirthday);

@@ -26,10 +26,9 @@
             <th>Должность</th>
           </tr>
         </table>
-        Содержимое 1...
         <!--Модальное окно-->
-        <div class="modal" id="modal">
-          <div class="modal_content">
+        <div class="modal_window" id="modal">
+          <div class="employee_card">
             <span class="close_modal_window">×</span>
           </div>
         </div>
@@ -60,18 +59,18 @@
       <div id="sorting" class="content">
         <div id="sort_menu">
           <h3>Пол</h3>
-          <input type="radio" name="gender" value="Мужчина" checked>
-          <label for="gender">Муж.</label>
-          <input type="radio" name="gender" value="Женщина">
-          <label for="gender">Жен.</label>
+          <input type="radio" name="gender" id="man" value="Мужчина" checked>
+          <label for="man">Муж.</label>
+          <input type="radio" name="gender" id="woman" value="Женщина">
+          <label for="woman">Жен.</label>
 
           <br>
 
           <h3>Дети</h3>
-          <input type="radio" name="kids" value="Нет" checked>
-          <label for="kids">Нет</label>
-          <input type="radio" name="kids" value="Есть">
-          <label for="kids">Есть</label>
+          <input type="radio" name="kids" id="no" value="Нет" checked>
+          <label for="no">Нет</label>
+          <input type="radio" name="kids" id="yes" value="Есть">
+          <label for="yes">Есть</label>
 
           <br>
 
