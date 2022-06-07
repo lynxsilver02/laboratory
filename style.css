@@ -1,10 +1,14 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Charis SIL', serif;
+    font-family: "Charis SIL", serif;
 }
 
-.container-login {
+/* ==================================================
+                        background
+===================================================== */
+
+.background {
     width: 100%;
     min-height: 90vh;
 
@@ -14,7 +18,7 @@
     z-index: 1;
 }
 
-.container-login::before {
+.background::before {
     content: "";
     display: block;
     position: absolute;
@@ -25,6 +29,10 @@
     left: 0;
     background-color: rgba(255, 255, 255, 0.8);
 }
+
+/* ==================================================
+                        header
+===================================================== */
 
 .header {
     width: 100%;
@@ -37,6 +45,10 @@
     line-height: 10vh;
     text-transform: uppercase;
 }
+
+/* ==================================================
+                        tabs
+===================================================== */
 
 .tabs {
     display: flex;
@@ -92,72 +104,43 @@
     display: block;
 }
 
+/* ==================================================
+                Блоки с информацией
+===================================================== */
+
 .content {
     width: 70%;
-    min-height: 75vh;
+    height: 75vh;
     margin: 0 auto;
     background-color: #fff;
     border: 1px solid #e3f2fd;
     box-shadow: 0 2px 4px 0 #e3f2fd;
 }
 
-table {
+/* ==================================================
+                Таблица сотрудников
+===================================================== */
+
+.employee-list {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
 }
 
-th,
-td {
+.employee-list th,
+.employee-list td {
     border: 1px solid #e3f2fd;
     padding: 5px;
 }
-th {
+.employee-list th {
     background-color: #bbdefb;
 }
 
-tr:hover {
+.employee-list tr:hover {
     background-color: #e3f2fd7e;
 }
 
-ю
-
-#new-card {
-    padding: auto;
-}
-
-.create-card {
-    margin: 5vw 0;
-}
-
-.header-create-card {
-    margin: 15px 0;
-    text-align: center;
-}
-
-form input {
-    padding: 10px;
-    margin: 10px 25vw;
-    border: 0;
-    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
-    width: 20vw;
-}
-
-input[value="Добавить сотрудника"] {
-    width: 10vw;
-    margin: 15px 30vw;
-    background-color: #bbdefb;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-input[value="Добавить сотрудника"]:hover {
-    background-color: #3e7399;
-    color: white;
-}
-
-/*Оформление модального окна*/
+/*Оформление модального окна (карточки сотрудника)*/
 .modal_window {
     display: none;
     position: fixed;
@@ -199,10 +182,87 @@ input[value="Добавить сотрудника"]:hover {
 }
 
 .modal_window button:hover {
-    background-color: #FFCEB9;
+    background-color: #ffceb9;
 }
 
-#old-table {
+/* ==================================================
+                Создание новой карточки
+===================================================== */
+
+#new-card {
+    padding: auto;
+}
+
+.create-card {
+    margin: 5vw 0;
+}
+
+.header-create-card {
+    margin: 15px 0;
+    text-align: center;
+}
+
+form input {
+    padding: 10px;
+    margin: 10px 25vw;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    width: 20vw;
+}
+
+input[value="Добавить сотрудника"] {
+    width: 10vw;
+    margin: 15px 30vw;
+    background-color: #bbdefb;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input[value="Добавить сотрудника"]:hover {
+    background-color: #3e7399;
+    color: white;
+}
+
+/* ==================================================
+            Таблица с параметрами сортировки
+===================================================== */
+
+.sorting-options {
+    width: 100%;
+    padding: 1%;
+    padding-bottom: 2%;
+}
+
+.sorting-options th, td {
+    padding: 0 3%;
+    text-align: center;
+}
+
+#start-old, #end-old {
+    margin-left: 2%;
+    text-align: center;
+    width: 7vw;
+}
+
+.sorting-options button {
+    float: right;
+    padding: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    width: 10vw;
+    background-color: #bbdefb;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.sorting-options button:hover {
+    background-color: #3e7399;
+    color: white;
+}
+
+/* #old-table {
     width: 10%;
 }
 
@@ -229,4 +289,4 @@ input[value="Добавить сотрудника"]:hover {
     padding: 2%;
     margin: 2%;
     border-radius: 15%;
-}
+} */

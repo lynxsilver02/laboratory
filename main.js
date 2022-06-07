@@ -151,7 +151,7 @@ let employees = [
         "0",
         "Научный сотрудник",
         "-"
-    ),
+    )
 ];
 
 let sorted_empl = []
@@ -413,14 +413,14 @@ function sortedList() {
 
     if (document.querySelector('input[name="gender"]:checked').value != gender) flag = true
     if (document.querySelector('input[name="kids"]:checked').value != kids)     flag = true
-    if (document.querySelector('input[name="start-old"]').value != startYears)  flag = true
-    if (document.querySelector('input[name="end-old"]').value != endYears)      flag = true
+    if (document.querySelector('input[id="start-old"]').value != startYears)  flag = true
+    if (document.querySelector('input[id="end-old"]').value != endYears)      flag = true
 
     if (flag) {
         gender     = document.querySelector('input[name="gender"]:checked').value
         kids       = document.querySelector('input[name="kids"]:checked').value
-        startYears = document.querySelector('input[name="start-old"]').value
-        endYears   = document.querySelector('input[name="end-old"]').value
+        startYears = document.querySelector('input[id="start-old"]').value
+        endYears   = document.querySelector('input[id="end-old"]').value
 
         if ( Number(startYears) > Number(endYears) || Number(startYears) < 18 ) {
             alert("Некорректный возрастной диапазон")

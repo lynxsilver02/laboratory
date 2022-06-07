@@ -16,8 +16,9 @@
   <div class="header">
     <h1>Лаборатория «Колбочка»</h1>
   </div>
-  <div class="container-login" style="background-image: url('./laboratory.jpg')">
+  <div class="background" style="background-image: url('./laboratory.jpg')">
     <div class="tabs">
+
       <div id="staff" class="content">
         <table class="employee-list">
           <tr>
@@ -26,13 +27,9 @@
             <th>Должность</th>
           </tr>
         </table>
-        <!--Модальное окно-->
-        <div class="modal_window" id="modal">
-          <div class="employee_card">
-            <span class="close_modal_window">×</span>
-          </div>
-        </div>
       </div>
+
+
       <div id="new-card" class="content">
         <section class="create-card">
           <h2 class="header-create-card">Создание карточки нового сотрудника</h2>
@@ -56,46 +53,49 @@
           </form>
         </section>
       </div>
+
+
       <div id="sorting" class="content">
         <div id="sort_menu">
-          <h3>Пол</h3>
-          <input type="radio" name="gender" id="man" value="Мужчина" checked>
-          <label for="man">Муж.</label>
-          <input type="radio" name="gender" id="woman" value="Женщина">
-          <label for="woman">Жен.</label>
-
-          <br>
-
-          <h3>Дети</h3>
-          <input type="radio" name="kids" id="no" value="Нет" checked>
-          <label for="no">Нет</label>
-          <input type="radio" name="kids" id="yes" value="Есть">
-          <label for="yes">Есть</label>
-
-          <br>
-
-          <h3>Возраст</h3>
-          <table id="old-table">
+          <table class="sorting-options">
+            <tr>
+              <th>Пол:</th>
+              <th>Дети:</th>
+              <th>Возраст:</th>
+            </tr>
             <tr>
               <td>
-                <label for="old">От</label>
+                <input type="radio" name="gender" id="man" value="Мужчина" checked>
+                <label for="man">Муж.</label>
               </td>
               <td>
-                <label for="old">До</label>
+                <input type="radio" name="kids" id="no" value="Нет" checked>
+                <label for="no">Нет</label>
+              </td>
+              <td>
+                <label for="start-old">От</label>
+                <input type="number" id="start-old" value="18" min="18">
+              </td>
+              <td rowspan="2">
+                <button onclick="sortedList()">Сортировать</button>
               </td>
             </tr>
             <tr>
               <td>
-                <input type="number" name="start-old" value="18" min="18">
+                <input type="radio" name="gender" id="woman" value="Женщина">
+                <label for="woman">Жен.</label>
               </td>
               <td>
-                <input type="number" name="end-old" value="30" max="200">
+                <input type="radio" name="kids" id="yes" value="Есть">
+                <label for="yes">Есть</label>
+              </td>
+              <td>
+                <label for="end-old">До</label>
+                <input type="number" id="end-old" value="30" max="200">
               </td>
             </tr>
           </table>
-          </table>
 
-          <button onclick="sortedList()">Сортировать</button>
         </div>
         <table class="employee-list">
           <tr>
@@ -105,6 +105,8 @@
           </tr>
         </table>
       </div>
+
+      
       <div class="tabs__links">
         <a href="#staff" class="left">Список всех сотрудников лаборатории</a>
         <section class="right_tabs">
@@ -112,6 +114,14 @@
           <a href="#sorting" class="right" onclick="sortedList()">Сортировка сотрудников</a>
         </section>
       </div>
+
+      <!--Модальное окно-->
+      <div class="modal_window" id="modal">
+        <div class="employee_card">
+          <span class="close_modal_window">×</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </body>
