@@ -121,25 +121,6 @@
                 Таблица сотрудников
 ===================================================== */
 
-/* .employee-list {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-.employee-list th,
-.employee-list td {
-    border: 1px solid #e3f2fd;
-    padding: 5px;
-}
-.employee-list th {
-    background-color: #bbdefb;
-}
-
-.employee-list tr:hover {
-    background-color: #e3f2fd7e;
-} */
-
 .scroll-table table {
     width: 100%;
     table-layout: fixed;
@@ -173,7 +154,6 @@
     border: 1px solid #e3f2fd;
     border-right: 1px solid #e3f2fd;
     padding: 5px;
-    font-size: 14px;
     vertical-align: top;
 }
 

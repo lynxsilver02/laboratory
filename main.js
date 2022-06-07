@@ -1,9 +1,8 @@
-window.onload = function() {
-    showAllEmployees()
-    sorted_empl = sort(gender, kids, startYears, endYears)
-    showSortedEmployees(sorted_empl)
-}
-
+window.onload = function () {
+    showAllEmployees();
+    sorted_empl = sort(gender, kids, startYears, endYears);
+    showSortedEmployees(sorted_empl);
+};
 
 class Employee {
     constructor(
@@ -151,16 +150,16 @@ let employees = [
         "0",
         "Научный сотрудник",
         "-"
-    )
+    ),
 ];
 
-let sorted_empl = []
+let sorted_empl = [];
 
 function showAllEmployees() {
     let table = document.getElementsByClassName("employee-list")[0];
 
     while (table.children.length != 1) {
-        table.removeChild(table.lastChild)
+        table.removeChild(table.lastChild);
     }
 
     for (let i = 0; i < employees.length; i++) {
@@ -187,60 +186,59 @@ function showAllEmployees() {
     }
 }
 
-
 // Функция поиска работника в массиве работников
 function search(name) {
-    let employee = null
+    let employee = null;
 
     for (let i = 0; i < employees.length; i++) {
         if (employees[i].name == name) {
-            employee = employees[i]
-            break
+            employee = employees[i];
+            break;
         }
     }
 
-    return employee
+    return employee;
 }
 
 function clearModal(div) {
     while (div.children.length != 1) {
-        div.removeChild(div.lastChild)
+        div.removeChild(div.lastChild);
     }
 }
 
 function deleteEmployee(name) {
     // Карточка удаляемого сотрудника
-    let del_employee = search(name)
-    
-    let new_array = []
+    let del_employee = search(name);
+
+    let new_array = [];
 
     // Обновление списка сотрудников
-    for (let i = 0; i < employees.length; i++ ){
-        if (employees[i] == del_employee) continue
-        new_array.push(employees[i])
+    for (let i = 0; i < employees.length; i++) {
+        if (employees[i] == del_employee) continue;
+        new_array.push(employees[i]);
     }
 
-    employees = new_array
+    employees = new_array;
 
-    let new_sorted_array = []
+    let new_sorted_array = [];
 
     // Обновление отсортированного списка сотрудников
-    for (let i= 0; i < sorted_empl.length; i++ ){
-        if (sorted_empl[i] == del_employee) continue
-        new_sorted_array.push(sorted_empl[i])
+    for (let i = 0; i < sorted_empl.length; i++) {
+        if (sorted_empl[i] == del_employee) continue;
+        new_sorted_array.push(sorted_empl[i]);
     }
 
-    sorted_empl = new_sorted_array
+    sorted_empl = new_sorted_array;
 
-    alert("Карточка сотрудника удалена")
-    showAllEmployees()
-    showSortedEmployees(sorted_empl)
+    alert("Карточка сотрудника удалена");
+    showAllEmployees();
+    showSortedEmployees(sorted_empl);
 }
 
 function showCardEmployee(event) {
     let modal = document.getElementById("modal");
     let span = document.getElementsByClassName("close_modal_window")[0];
-    
+
     modal.style.display = "block";
     span.onclick = function () {
         modal.style.display = "none";
@@ -252,13 +250,13 @@ function showCardEmployee(event) {
         }
     };
 
-    let employee = search(event.getElementsByTagName("td")[0].textContent)
+    let employee = search(event.getElementsByTagName("td")[0].textContent);
 
     //Добавиление информации о сотруднике в модальное окно
     let div = document.getElementsByClassName("employee_card")[0];
 
     // Очистка всех полей модального окна
-    clearModal(div)
+    clearModal(div);
 
     let img = document.createElement("img");
     if (employee.gender == "Мужчина") {
@@ -271,36 +269,40 @@ function showCardEmployee(event) {
 
     // Настройка всех полей и кнопки модального окна
     let pname = document.createElement("p");
-    pname.textContent = 'ФИО: ' + employee.name;
-    
+    pname.textContent = "ФИО: " + employee.name;
+
     let pgender = document.createElement("p");
-    pgender.textContent = "Пол: " + employee.gender
+    pgender.textContent = "Пол: " + employee.gender;
 
-    let pbirthday = document.createElement("p")
-    pbirthday.textContent = "Дата рождения: " + employee.birthday
+    let pbirthday = document.createElement("p");
+    pbirthday.textContent = "Дата рождения: " + employee.birthday;
 
-    let pmaterial_status = document.createElement("p")
-    pmaterial_status.textContent = "Семейное положение: " + employee.marital_status
+    let pmaterial_status = document.createElement("p");
+    pmaterial_status.textContent =
+        "Семейное положение: " + employee.marital_status;
 
-    let pkids = document.createElement("p")
-    pkids.textContent = "Дети: " + employee.kids
+    let pkids = document.createElement("p");
+    pkids.textContent = "Дети: " + employee.kids;
 
-    let pposition = document.createElement("p")
-    pposition.textContent = "Должность: " + employee.position
+    let pposition = document.createElement("p");
+    pposition.textContent = "Должность: " + employee.position;
 
-    let pscientific_degree = document.createElement("p")
-    pscientific_degree.textContent = "Учёная степень: " + employee.scientific_degree
+    let pscientific_degree = document.createElement("p");
+    pscientific_degree.textContent =
+        "Учёная степень: " + employee.scientific_degree;
 
-    let del_button = document.createElement("button")
-    del_button.textContent = "Удалить карточку сотрудника"
-    del_button.onclick = function() {
-        if (confirm("Вы уверены, что хотите удалить карточку этого сотрудника?")){
-            deleteEmployee(employee.name)
-            modal.style.display = "none"
+    let del_button = document.createElement("button");
+    del_button.textContent = "Удалить карточку сотрудника";
+    del_button.onclick = function () {
+        if (
+            confirm("Вы уверены, что хотите удалить карточку этого сотрудника?")
+        ) {
+            deleteEmployee(employee.name);
+            modal.style.display = "none";
         }
-    }
+    };
 
-    // Добавление всех полей и кнопки в модальное окно 
+    // Добавление всех полей и кнопки в модальное окно
     div.appendChild(img);
     div.appendChild(pname);
     div.appendChild(pgender);
@@ -309,10 +311,50 @@ function showCardEmployee(event) {
     div.appendChild(pkids);
     div.appendChild(pposition);
     div.appendChild(pscientific_degree);
-    div.appendChild(del_button)
+    div.appendChild(del_button);
 }
 
+//
+function addEmployee() {
+    let inputs = document.getElementsByClassName("input");
 
+    let flagEmptyInput = false;
+    for (let i = 0; i < inputs['length']; i++) {
+        if (inputs.item(i).value.trim().length == 0) {
+            flagEmptyInput = true;
+            break;
+        }
+    }
+
+    if (flagEmptyInput) {
+        alert("Заполните все поля.");
+        return false;
+    }
+
+    let date_arr = inputs.item(2).value.split("-")
+    let date = date_arr[2] + "." + date_arr[1] + "." + date_arr[0]
+
+    let employee = new Employee(inputs.item(0).value, 
+                                inputs.item(1).value,
+                                date,
+                                inputs.item(3).value,
+                                inputs.item(4).value,
+                                inputs.item(5).value,
+                                inputs.item(6).value)
+    employees.push(employee)
+
+    showAllEmployees()
+    sorted_empl = sort(gender, kids, startYears, endYears)
+    showSortedEmployees(sorted_empl)
+
+    alert("Сотрудник успешно добавлен")
+
+    for (let i = 0; i < inputs['length']; i++ ){
+        inputs.item(i).value = ""
+    }
+
+    return true;
+}
 
 // ============================================================
 //
@@ -320,12 +362,10 @@ function showCardEmployee(event) {
 //
 // ============================================================
 
-
-let gender = "Мужчина"
-let kids   = "Нет"
-let startYears = "18"
-let endYears   = "30"
-
+let gender = "Мужчина";
+let kids = "Нет";
+let startYears = "18";
+let endYears = "30";
 
 // Функция возвращает возраст работника.
 // Стандартное определение возраста не работает, потому что минимально возможный год
@@ -351,14 +391,21 @@ function getOld(employee) {
 
 // Функция фильтрации работников по заданным параметрам
 function sort(gender, kids, start_old, end_old) {
-    let sorted_empl = []
+    let sorted_empl = [];
 
-    for (let i = 0; i < employees.length; i++ ){
-        let employee_old = getOld(employees[i])
-        
-        if (employees[i].gender == gender && employee_old >= start_old && employee_old <= end_old) {
-            if ((kids == "Нет" && employees[i].kids == 0) || (kids == "Есть" && employees[i].kids > 0)) {
-                sorted_empl.push(employees[i])
+    for (let i = 0; i < employees.length; i++) {
+        let employee_old = getOld(employees[i]);
+
+        if (
+            employees[i].gender == gender &&
+            employee_old >= start_old &&
+            employee_old <= end_old
+        ) {
+            if (
+                (kids == "Нет" && employees[i].kids == 0) ||
+                (kids == "Есть" && employees[i].kids > 0)
+            ) {
+                sorted_empl.push(employees[i]);
             }
         }
     }
@@ -367,68 +414,72 @@ function sort(gender, kids, start_old, end_old) {
 }
 
 function showSortedEmployees(list) {
-    let table = document.getElementById("sorting").getElementsByClassName("employee-list")[0]
+    let table = document
+        .getElementById("sorting")
+        .getElementsByClassName("employee-list")[0];
 
     // Очистка таблицы от старых данных
     while (table.children.length != 1) {
-        table.removeChild(table.lastChild)
+        table.removeChild(table.lastChild);
     }
 
     // Заполнение таблины новыми данными
     if (list.length > 0) {
-        for (let i = 0; i < list.length; i++ ){
-            let row  = document.createElement("tr")
-            let name = document.createElement("td")
-            let birth = document.createElement("td")
-            let position = document.createElement("td")
-            
-            row.setAttribute("onclick", "showCardEmployee(this)")
+        for (let i = 0; i < list.length; i++) {
+            let row = document.createElement("tr");
+            let name = document.createElement("td");
+            let birth = document.createElement("td");
+            let position = document.createElement("td");
 
-            name.textContent = list[i].name
-            birth.textContent = list[i].birthday
-            position.textContent = list[i].position
+            row.setAttribute("onclick", "showCardEmployee(this)");
 
-            row.appendChild(name)
-            row.appendChild(birth)
-            row.appendChild(position)
+            name.textContent = list[i].name;
+            birth.textContent = list[i].birthday;
+            position.textContent = list[i].position;
 
-            table.appendChild(row)
+            row.appendChild(name);
+            row.appendChild(birth);
+            row.appendChild(position);
+
+            table.appendChild(row);
         }
     } else {
-        let row = document.createElement("tr")
-        let data = document.createElement("td")
+        let row = document.createElement("tr");
+        let data = document.createElement("td");
 
-        data.setAttribute("colspan", "3")
+        data.setAttribute("colspan", "3");
 
-        data.textContent = "Подходящих работников нет"
-        row.appendChild(data)
+        data.textContent = "Подходящих работников нет";
+        row.appendChild(data);
 
-        table.appendChild(row)
+        table.appendChild(row);
     }
-
 }
 
 function sortedList() {
-    let flag = false
+    let flag = false;
 
-    if (document.querySelector('input[name="gender"]:checked').value != gender) flag = true
-    if (document.querySelector('input[name="kids"]:checked').value != kids)     flag = true
-    if (document.querySelector('input[id="start-old"]').value != startYears)  flag = true
-    if (document.querySelector('input[id="end-old"]').value != endYears)      flag = true
+    if (document.querySelector('input[name="gender"]:checked').value != gender)
+        flag = true;
+    if (document.querySelector('input[name="kids"]:checked').value != kids)
+        flag = true;
+    if (document.querySelector('input[id="start-old"]').value != startYears)
+        flag = true;
+    if (document.querySelector('input[id="end-old"]').value != endYears)
+        flag = true;
 
     if (flag) {
-        gender     = document.querySelector('input[name="gender"]:checked').value
-        kids       = document.querySelector('input[name="kids"]:checked').value
-        startYears = document.querySelector('input[id="start-old"]').value
-        endYears   = document.querySelector('input[id="end-old"]').value
+        gender = document.querySelector('input[name="gender"]:checked').value;
+        kids = document.querySelector('input[name="kids"]:checked').value;
+        startYears = document.querySelector('input[id="start-old"]').value;
+        endYears = document.querySelector('input[id="end-old"]').value;
 
-        if ( Number(startYears) > Number(endYears) || Number(startYears) < 18 ) {
-            alert("Некорректный возрастной диапазон")
-            return
+        if (Number(startYears) > Number(endYears) || Number(startYears) < 18) {
+            alert("Некорректный возрастной диапазон");
+            return;
         }
 
-        sorted_empl = sort(gender, kids, startYears, endYears)
-        showSortedEmployees(sorted_empl)
+        sorted_empl = sort(gender, kids, startYears, endYears);
+        showSortedEmployees(sorted_empl);
     }
-
 }

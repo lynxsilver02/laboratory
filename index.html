@@ -48,7 +48,7 @@
               <option value="Мужчина"></option>
               <option value="Женщина"></option>
             </datalist>
-            <input type="number" step="1" min="18" max="100" placeholder="Возраст" class="input" required /><br />
+            <input type="date" placeholder="Дата рождения" class="input" required /><br />
             <input list="status" class="input" placeholder="Семейное положение" required /><br />
             <datalist id="status">
               <option value="В браке"></option>
@@ -57,7 +57,7 @@
             <input type="number" step="1" min="0" max="30" placeholder="Дети" class="input" required /><br />
             <input type="text" class="input" placeholder="Должность" required /><br />
             <input type="text" class="input" placeholder="Научная степень" required /><br />
-            <input type="button" value="Добавить сотрудника" />
+            <input type="button" value="Добавить сотрудника" onclick="return addEmployee()"/>
           </form>
         </section>
       </div>
@@ -120,7 +120,7 @@
             </table>
           </div>
         </div>
-        
+
       </div>
 
 
