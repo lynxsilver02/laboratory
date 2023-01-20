@@ -23,8 +23,10 @@ class Employee {
         this.scientific_degree = scientific_degree;
     }
 }
-//Кандидат наук, Доктор наук
+
 let employees = [
+
+    // Для проверки функциональности
     new Employee(
         "Иванов Иван Иванович",
         "Мужчина",
@@ -151,6 +153,51 @@ let employees = [
         "Научный сотрудник",
         "-"
     ),
+    new Employee(
+        "Андреева Ксения Дмитриевна",
+        "Женщина",
+        "14.12.1990",
+        "Не в браке",
+        "0",
+        "Научный сотрудник",
+        "-"
+    ),
+    new Employee(
+        "Кузнецов Семен Михайлович",
+        "Мужчина",
+        "20.12.1997",
+        "В браке",
+        "0",
+        "Научный сотрудник",
+        "-"
+    ),
+    new Employee(
+        "Дерюгина Алена Степановна",
+        "Женщина",
+        "07.10.1993",
+        "Не в браке",
+        "1",
+        "Научный сотрудник",
+        "-"
+    ),
+    new Employee(
+        "Быстров Олег Игоревич",
+        "Мужчина",
+        "15.11.1990",
+        "В браке",
+        "1",
+        "Биолог",
+        "Кандидат наук"
+    ),
+    new Employee(
+        "Осипова Дарья Петровна",
+        "Женщина",
+        "09.04.1992",
+        "Не в браке",
+        "0",
+        "Инженер-лаборант",
+        "Кандидат наук"
+    )
 ];
 
 let sorted_empl = [];
@@ -196,7 +243,6 @@ function search(name) {
             break;
         }
     }
-
     return employee;
 }
 
@@ -252,7 +298,7 @@ function showCardEmployee(event) {
 
     let employee = search(event.getElementsByTagName("td")[0].textContent);
 
-    //Добавиление информации о сотруднике в модальное окно
+    // Добавиление информации о сотруднике в модальное окно
     let div = document.getElementsByClassName("employee_card")[0];
 
     // Очистка всех полей модального окна
@@ -260,10 +306,10 @@ function showCardEmployee(event) {
 
     let img = document.createElement("img");
     if (employee.gender == "Мужчина") {
-        img.setAttribute("src", "./man.jpg");
+        img.setAttribute("src", "img/man.jpg");
         img.setAttribute("height", "200");
     } else if (employee.gender == "Женщина") {
-        img.setAttribute("src", "./woman.jpg");
+        img.setAttribute("src", "img/woman.jpg");
         img.setAttribute("height", "200");
     }
 
@@ -314,7 +360,12 @@ function showCardEmployee(event) {
     div.appendChild(del_button);
 }
 
+// ============================================================
 //
+//            Добавление карточки нового сотрудника
+//
+// ============================================================
+
 function addEmployee() {
     let inputs = document.getElementsByClassName("input");
 
@@ -328,6 +379,11 @@ function addEmployee() {
 
     if (flagEmptyInput) {
         alert("Заполните все поля.");
+        return false;
+    }
+
+    if (inputs.item(4).value < 0 || inputs.item(4).value > 90) {
+        alert("Некорректное количество детей.");
         return false;
     }
 
@@ -358,7 +414,7 @@ function addEmployee() {
 
 // ============================================================
 //
-//              Здесь всё, что касается сортировки
+//                 Всё, что касается сортировки
 //
 // ============================================================
 
@@ -368,8 +424,8 @@ let startYears = "18";
 let endYears = "30";
 
 // Функция возвращает возраст работника.
-// Стандартное определение возраста не работает, потому что минимально возможный год
-// в JS – 1980
+// Стандартное определение возраста не работает, потому что 
+// минимально возможный год в JS – 1980
 function getOld(employee) {
     let arr = employee.birthday.split(".");
     let today = new Date();
